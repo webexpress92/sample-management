@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samples Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PAGE 1: Home -->
+    <div id="page-home" class="page">
+        <div class="container">
+            <h1>Samples Management</h1>
+            <p>Manage your product samples for collection development.</p>
+            <div class="home-actions">
+                <button id="btn-create" class="btn btn-primary">Create a new project</button>
+                <button id="btn-import" class="btn btn-secondary">Import a project</button>
+                <input type="file" id="import-file" accept=".json" hidden>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Configuration -->
+    <div id="page-config" class="page hidden">
+        <div class="container">
+            <h1>Project Configuration</h1>
+
+            <form id="config-form" novalidate>
+                <!-- Collection name -->
+                <div class="form-group">
+                    <label for="collection-name">Collection name <span class="required">*</span></label>
+                    <input type="text" id="collection-name" placeholder="Enter collection name">
+                </div>
+
+                <!-- Product type -->
+                <div class="form-group">
+                    <label for="product-type">Product type <span class="required">*</span></label>
+                    <select id="product-type">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+
+                <!-- Product colours -->
+                <div class="form-group">
+                    <label>Product colours <span class="required">*</span></label>
+                    <div id="product-colours" class="checkbox-group"></div>
+                </div>
+
+                <!-- Colours use for shooting -->
+                <div class="form-group">
+                    <label>Colours use for shooting <span class="required">*</span></label>
+                    <div id="colour-shooting" class="checkbox-group"></div>
+                </div>
+
+                <!-- First master sample colour -->
+                <div class="form-group">
+                    <label for="first-master-colour">First master sample colour <span class="required">*</span></label>
+                    <select id="first-master-colour">
+                        <option value="">-- Select a colour first --</option>
+                    </select>
+                </div>
+
+                <!-- Size system -->
+                <div class="form-group">
+                    <label for="size-system">Size system <span class="required">*</span></label>
+                    <select id="size-system">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+
+                <!-- Size opening -->
+                <div class="form-group hidden" id="size-opening-group">
+                    <label>Size opening <span class="required">*</span></label>
+                    <div id="size-opening" class="checkbox-group"></div>
+                </div>
+
+                <!-- Base size (tops only) -->
+                <div class="form-group" id="base-size-group">
+                    <label for="base-size">Base size <span class="required">*</span></label>
+                    <select id="base-size">
+                        <option value="">-- Select a size system first --</option>
+                    </select>
+                </div>
+
+                <!-- Leg lengths (bottoms only) -->
+                <div class="form-group hidden" id="leg-lengths-group">
+                    <label>Leg lengths <span class="required">*</span></label>
+                    <div id="leg-lengths" class="checkbox-group"></div>
+                </div>
+
+                <!-- Size combinations grid + 3 dropdowns (bottoms only) -->
+                <div class="form-group hidden" id="size-grid-group">
+                    <label>Size combinations</label>
+                    <div class="table-scroll">
+                        <table id="size-combinations-grid"></table>
+                    </div>
+                    <label for="smallest-size" style="margin-top:12px">Smallest size <span class="required">*</span></label>
+                    <select id="smallest-size"><option value="">-- Select --</option></select>
+                    <label for="base-size-bottoms" style="margin-top:12px">Base size <span class="required">*</span></label>
+                    <select id="base-size-bottoms"><option value="">-- Select --</option></select>
+                    <label for="largest-size" style="margin-top:12px">Largest size <span class="required">*</span></label>
+                    <select id="largest-size"><option value="">-- Select --</option></select>
+                </div>
+
+                <!-- Target market -->
+                <div class="form-group">
+                    <label>Target market <span class="required">*</span></label>
+                    <div id="target-market" class="checkbox-group"></div>
+                </div>
+
+                <!-- Specific tests -->
+                <div class="form-group">
+                    <label>Specific tests</label>
+                    <div id="specific-tests" class="checkbox-group"></div>
+                </div>
+
+                <!-- Electric arc colour selection -->
+                <div class="form-group hidden" id="electric-arc-colours-group">
+                    <label>Colours for electric arc tests <span class="required">*</span></label>
+                    <div id="electric-arc-colours" class="checkbox-group"></div>
+                </div>
+
+                <!-- Performance Tests section -->
+                <div id="performance-tests-section" class="hidden">
+                    <h2>Performance tests</h2>
+                    <div class="perf-tests-row">
+
+                        <!-- Arc electric performance -->
+                        <div id="perf-arc-section" class="perf-tests-part hidden">
+                            <h3>Electric arc</h3>
+                            <div class="form-group">
+                                <label>Colours <span class="required">*</span></label>
+                                <div id="perf-arc-colours" class="checkbox-group"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Test type <span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="perf-arc-type" value="Open Arc"> Open Arc</label>
+                                    <label><input type="checkbox" name="perf-arc-type" value="Box test"> Box test</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Drying process <span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="perf-arc-drying" value="Tunnel"> Tunnel</label>
+                                    <label><input type="checkbox" name="perf-arc-drying" value="Tumbler"> Tumbler</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of cycles <span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="perf-arc-cycles" value="25"> 25</label>
+                                    <label><input type="checkbox" name="perf-arc-cycles" value="40"> 40</label>
+                                    <label><input type="checkbox" name="perf-arc-cycles" value="50"> 50</label>
+                                    <label><input type="checkbox" name="perf-arc-cycles" value="80"> 80</label>
+                                    <label><input type="checkbox" name="perf-arc-cycles" value="100"> 100</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="perf-arc-size">Size <span class="required">*</span></label>
+                                <select id="perf-arc-size"><option value="">-- Select a size first --</option></select>
+                            </div>
+                        </div>
+
+                        <!-- ESD performance -->
+                        <div id="perf-esd-section" class="perf-tests-part hidden">
+                            <h3>ESD</h3>
+                            <div class="form-group">
+                                <label>Colours <span class="required">*</span></label>
+                                <div id="perf-esd-colours" class="checkbox-group"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Drying process <span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="perf-esd-drying" value="Tunnel"> Tunnel</label>
+                                    <label><input type="checkbox" name="perf-esd-drying" value="Tumbler"> Tumbler</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of cycles <span class="required">*</span></label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="perf-esd-cycles" value="25"> 25</label>
+                                    <label><input type="checkbox" name="perf-esd-cycles" value="40"> 40</label>
+                                    <label><input type="checkbox" name="perf-esd-cycles" value="50"> 50</label>
+                                    <label><input type="checkbox" name="perf-esd-cycles" value="80"> 80</label>
+                                    <label><input type="checkbox" name="perf-esd-cycles" value="100"> 100</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="perf-esd-size">Size <span class="required">*</span></label>
+                                <select id="perf-esd-size"><option value="">-- Select a size first --</option></select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button type="button" id="btn-calculate" class="btn btn-primary" disabled>Let's manage samples</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Dashboard -->
+    <div id="page-dashboard" class="page hidden">
+        <div class="container">
+            <h1>Sample Dashboard</h1>
+
+            <div id="project-summary"></div>
+
+            <h2>Samples to order</h2>
+            <table id="order-grid"></table>
+
+            <h2>Sample flow</h2>
+            <table id="action-flow"></table>
+
+            <div class="dashboard-actions">
+                <button id="btn-export" class="btn btn-primary">Export project</button>
+                <button id="btn-export-excel" class="btn btn-primary">Export Excel</button>
+                <button id="btn-back-config" class="btn btn-secondary">Back to configuration</button>
+                <button id="btn-back-home" class="btn btn-secondary">Back to home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
