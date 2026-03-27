@@ -1,0 +1,261 @@
+/* ========================================
+   Samples Management - Minimal Style
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    color: #222;
+    background: #f5f5f5;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+h1 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 1.1em;
+    margin: 24px 0 12px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 24px;
+}
+
+/* Pages */
+.page {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+}
+
+.btn-primary {
+    background: #333;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #555;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    background: #333;
+}
+
+/* Home actions */
+.home-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.required {
+    color: #c00;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #f0f0f0;
+    font-weight: 600;
+}
+
+tfoot td {
+    font-weight: 700;
+    background: #f8f8f8;
+}
+
+/* Project summary */
+#project-summary {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+#project-summary strong {
+    display: inline-block;
+    min-width: 160px;
+}
+
+/* Sample chips (coloured squares) */
+.sample-chip {
+    display: inline-block;
+    min-width: 36px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 0 4px;
+}
+
+/* Order grid - zero cells */
+.cell-zero {
+    color: #ccc;
+}
+
+/* Action flow - tags */
+.tag-destructive {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 6px;
+    background: #f0e0e0;
+    color: #900;
+    border-radius: 3px;
+    margin-left: 4px;
+}
+
+.tag-safe {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 6px;
+    background: #e0f0e0;
+    color: #060;
+    border-radius: 3px;
+    margin-left: 4px;
+}
+
+/* Size combinations grid */
+#size-combinations-grid td {
+    text-align: center;
+    padding: 4px 8px;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+/* Dashboard actions */
+.dashboard-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Performance tests section */
+.perf-tests-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.perf-tests-part {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    background: #fafafa;
+}
+
+.perf-tests-part h3 {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Tag wardrobe */
+.tag-wardrobe {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 6px;
+    background: #e8f0fe;
+    color: #1a56db;
+    border-radius: 3px;
+    margin-left: 4px;
+}
